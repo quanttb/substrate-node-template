@@ -1,3 +1,4 @@
+use node_template_runtime::KittiesModuleConfig;
 use node_template_runtime::{
 	AccountId, AuraConfig, BalancesConfig, GenesisConfig, GrandpaConfig, Signature, SudoConfig,
 	SystemConfig, WASM_BINARY,
@@ -152,5 +153,8 @@ fn testnet_genesis(
 			key: Some(root_key),
 		},
 		transaction_payment: Default::default(),
+		kitties_module: KittiesModuleConfig {
+			kitties: vec![],
+		},
 	}
 }
