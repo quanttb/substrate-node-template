@@ -86,6 +86,7 @@ impl pallet_kitties::Config for Test {
     type Currency = Balances;
     type MaxKittyOwned = MaxKittyOwned;
     type KittyRandomness = RandomnessCollectiveFlip;
+    type WeightInfo = ();
 }
 
 // Build genesis storage according to the mock runtime.
