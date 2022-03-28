@@ -1,6 +1,18 @@
 #![cfg_attr(not(feature = "std"), no_std)]
 
 pub use pallet::*;
+// pub use pallet::*;
+
+#[cfg(test)]
+mod mock;
+
+#[cfg(test)]
+mod tests;
+
+#[cfg(feature = "runtime-benchmarks")]
+mod benchmarking;
+
+pub mod weights;
 
 #[frame_support::pallet]
 pub mod pallet {
@@ -14,6 +26,8 @@ pub mod pallet {
 	use sp_io::hashing::blake2_128;
 	use scale_info::TypeInfo;
 	use pallet_timestamp::{self as timestamp};
+
+	use crate::weights::WeightInfo;
 
 	#[cfg(feature = "std")]
 	use frame_support::serde::{Deserialize, Serialize};
@@ -32,6 +46,12 @@ pub mod pallet {
 		pub gender: Gender,
 		pub owner: AccountOf<T>,
 		pub created_date: T::Moment,
+	}
+
+	impl<T: Config> sp_std::fmt::Display for Kitty<T> {
+    fn fmt(&self, f: &mut sp_std::fmt::Formatter<'_>) -> sp_std::fmt::Result {
+        write!(f, "(dna: {:?}, price: {:?}, gender: {:?}, owner: {:?})", self.dna, self.price, self.gender, self.owner)
+    }
 	}
 
 	// Enum declaration for Gender.
@@ -61,6 +81,8 @@ pub mod pallet {
 
 		/// The type of Randomness we want to specify for this pallet.
 		type KittyRandomness: Randomness<Self::Hash, Self::BlockNumber>;
+
+		type WeightInfo: WeightInfo;
 	}
 
 	// Errors.
@@ -156,7 +178,8 @@ pub mod pallet {
 		/// Create a new unique kitty.
 		///
 		/// The actual kitty creation is done in the `mint()` function.
-		#[pallet::weight(100)]
+		// #[pallet::weight(100)]
+		#[pallet::weight(<T as Config>::WeightInfo::create_kitty())]
 		pub fn create_kitty(origin: OriginFor<T>) -> DispatchResult {
 			let sender = ensure_signed(origin)?;
 
@@ -335,6 +358,8 @@ pub mod pallet {
 				owner: owner.clone(),
 				created_date: <timestamp::Pallet<T>>::get(),
 			};
+
+			log::info!("kitty: {}", kitty);
 
 			let kitty_id = T::Hashing::hash_of(&kitty);
 
