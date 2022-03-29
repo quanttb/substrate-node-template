@@ -419,5 +419,9 @@ pub mod pallet {
 
 			Ok(())
 		}
+
+		pub fn get_kitty_count() -> u64 {
+			KittyCnt::<T>::get()
+		}
 	}
 }
