@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "author_insertKey",
+  "params": [
+    "aura",
+    "high nasty moment frost jelly drink belt swamp earn cattle false hurdle",
+    "0xe46c2a6aefac2ccd546b16e0bc3d48b9928871594140691b3937e324f7037f74"
+  ]
+}

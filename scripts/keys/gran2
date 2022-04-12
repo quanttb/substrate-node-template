@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "author_insertKey",
+  "params": [
+    "gran",
+    "high nasty moment frost jelly drink belt swamp earn cattle false hurdle",
+    "0x89bda569ac96241376d79653e1f01fff1f2c685146d07a4b208f8e8245ff331e"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "author_insertKey",
+  "params": [
+    "aura",
+    "city exclude shed much bonus then desk reopen ecology stay session trust",
+    "0x7a08c7a5fea98d9394e9870db7adedd8a2a8e948a62737c1022dae5514e97029"
+  ]
+}

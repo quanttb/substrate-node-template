@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "author_insertKey",
+  "params": [
+    "gran",
+    "city exclude shed much bonus then desk reopen ecology stay session trust",
+    "0x5f195138996cd09f99227ad3b8921f2b2b3ea7b527f49949b72a6468e1c74eb3"
+  ]
+}

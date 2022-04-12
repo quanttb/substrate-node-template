@@ -1,0 +1,10 @@
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "author_insertKey",
+  "params": [
+    "gran",
+    "mirror arrest garage train that final chimney smart cruel neck ability novel",
+    "0xd5cbcaa4d13f611e6af7a10587f89a8cd57b093761f8da4fc55d16e103a5d2ef"
+  ]
+}
